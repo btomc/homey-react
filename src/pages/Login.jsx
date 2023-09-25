@@ -1,3 +1,4 @@
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 import { FcGoogle } from 'react-icons/fc'
 import VisibilityIcon from '../assets/visibilityIcon.svg'
 import Input from '../component/Input'
@@ -22,7 +23,25 @@ const Login = () => {
     }))
   }
 
-  const onSubmit = async (e) => {}
+  const onSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const auth = getAuth()
+
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+
+      if (userCredential.user) {
+        navigate('/')
+      }
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   return (
     <div className='justify-center flex flex-col items-center outline-none focus:outline-none bg-[#293843]/80 z-20'>
