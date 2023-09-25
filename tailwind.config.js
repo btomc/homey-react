@@ -7,7 +7,7 @@ module.exports = {
         'light-20': '#f2f2f2',
         'light-50': '#f7f7f7',
         'light-100': '#fcfcfc',
-        'light-500': '#rgba(255, 255, 255, 0.2)',
+        'light-500': 'rgba(255, 255, 255, 0.2)',
         'light-600': '#eff1fc',
         'primary-100': '#2949c6',
         'primary-300': '#4066ff',
