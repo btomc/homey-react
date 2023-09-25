@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 
 const Hero = () => {
   return (
-    <div className='bg-secondary-600 flex justify-center items-center h-[100vh] relative text-gray-50 overflow-hidden before:content before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 before:bg-gradient-purple  to-secondary-600  z-10'>
+    <div className='bg-secondary-600 flex justify-center items-center h-[90vh] relative text-gray-50 overflow-hidden before:content before:absolute before:top-0 before:bottom-0 before:right-0 before:left-0 before:bg-gradient-purple  to-secondary-600  z-10'>
       {/* Bg Image */}
       <div className='absolute top-0 bottom-0 right-0 left-0 w-full h-full overflow-hidden z-[-1]'>
         <img
           src={bg}
           alt='home'
-          className='w-full h-full object-cover brightness-90'
+          className='bg-dark-400 w-full h-full object-cover brightness-90'
         />
       </div>
       {/* Content */}
@@ -19,7 +19,7 @@ const Hero = () => {
             There's no place like home
           </h1>
           <p className='text-3xl mb-2'>Find a home that is perfect for you</p>
-          <div className='mt-4 flex gap-4'>
+          <div className='mt-4 flex gap-4 text-lg'>
             <Link
               to='/category/rent'
               className='bg-primary-100 py-4 px-8 rounded-md'
