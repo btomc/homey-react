@@ -1,15 +1,16 @@
-import { FcGoogle } from 'react-icons/fc'
-import VisibilityIcon from '../assets/visibilityIcon.svg'
-import Input from '../component/Input'
-import Button from '../component/Button'
-import { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
 import {
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
 } from 'firebase/auth'
 import { db } from '../firebase.config'
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { FcGoogle } from 'react-icons/fc'
+import VisibilityIcon from '../assets/visibilityIcon.svg'
+import Input from '../component/Input'
+import Button from '../component/Button'
+import { useState } from 'react'
+import { useNavigate, Link } from 'react-router-dom'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -46,6 +47,12 @@ const Register = () => {
       updateProfile(auth.currentUser, {
         displayName: name,
       })
+
+      const formDataCopy = { ...formData }
+      delete formDataCopy.password
+      formDataCopy.timestamp = serverTimestamp()
+
+      await setDoc(doc(db, 'users', user.uid), formDataCopy)
 
       navigate('/')
     } catch (error) {
