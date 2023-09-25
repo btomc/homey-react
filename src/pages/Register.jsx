@@ -4,6 +4,12 @@ import Input from '../component/Input'
 import Button from '../component/Button'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth'
+import { db } from '../firebase.config'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -23,17 +29,41 @@ const Register = () => {
     }))
   }
 
+  const onSubmit = async (e) => {
+    e.preventDefault()
+
+    try {
+      const auth = getAuth()
+
+      const userCredential = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      )
+
+      const user = userCredential.user
+
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      })
+
+      navigate('/')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
   return (
     <div className='justify-center flex flex-col items-center outline-none focus:outline-none bg-[#293843]/80 z-20'>
       <div className='mt-6 w-full sm:w-[500px] md:w-[60%] min-h-[600px] flex flex-col gap-y-4 items-center z-40 text-black bg-light-100/90 rounded mb-6'>
         <h2 className='text-3xl font-semibold mt-8 pt-4'>Welcome to Homey!</h2>
         <p className='text-base text-black/50'>Create an account</p>
-        <form className='px-10 pb-8 pt-4 w-full'>
+        <form onSubmit={onSubmit} className='px-10 pb-8 pt-4 w-full'>
           <div className='my-4 w-full'>
             <label className='text-lg'>Name</label>
             <Input
               type='text'
-              id='text'
+              id='name'
               placeholder='Enter your name'
               value={name}
               onChange={onChange}
@@ -76,7 +106,7 @@ const Register = () => {
             </Link>
           </div>
           <Button big full>
-            Login
+            Register
           </Button>
 
           <div className='mt-6'>

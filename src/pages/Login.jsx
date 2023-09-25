@@ -22,12 +22,14 @@ const Login = () => {
     }))
   }
 
+  const onSubmit = async (e) => {}
+
   return (
     <div className='justify-center flex flex-col items-center outline-none focus:outline-none bg-[#293843]/80 z-20'>
       <div className='mt-6 w-full sm:w-[500px] md:w-[60%] min-h-[600px] flex flex-col gap-y-4 items-center z-40 text-black bg-light-100/90 rounded mb-6'>
         <h2 className='text-3xl font-semibold mt-8 pt-4'>Welcome back!</h2>
         <p className='text-base text-black/50'>Login to your account</p>
-        <form className='px-10 pb-8 pt-4 w-full'>
+        <form onSubmit={onSubmit} className='px-10 pb-8 pt-4 w-full'>
           <div className='my-4 w-full'>
             <label className='text-lg'>Email Address</label>
             <Input
