@@ -16,9 +16,10 @@ module.exports = {
         'primary-gradient':
           'linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%)',
         'secondary-200': '#f2c618',
+        'dark-100': '#191f4c',
         'dark-200': 'rgba(0, 0, 0, 0.4)',
-        'dark-300': '#191f4c',
-        'dark-400': '#435C6F',
+        'dark-300': '#435C6F',
+        'dark-400': '#2C3D47',
         'dark-500': '#293843',
       },
       backgroundImage: (theme) => ({

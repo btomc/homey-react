@@ -11,6 +11,7 @@ import Input from '../component/Input'
 import Button from '../component/Button'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -56,7 +57,7 @@ const Register = () => {
 
       navigate('/')
     } catch (error) {
-      console.log(error)
+      toast.error('Something went wrong. Try again')
     }
   }
 

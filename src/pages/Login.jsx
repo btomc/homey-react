@@ -5,6 +5,7 @@ import Input from '../component/Input'
 import Button from '../component/Button'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
+import { toast } from 'react-toastify'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -39,7 +40,7 @@ const Login = () => {
         navigate('/')
       }
     } catch (error) {
-      console.log(error)
+      toast.error('Wrong User Credentials')
     }
   }
 
