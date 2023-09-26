@@ -1,20 +1,24 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { getAuth } from 'firebase/auth'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { BiSolidHomeSmile } from 'react-icons/bi'
 import { HiUserCircle } from 'react-icons/hi2'
 import { FiLogOut } from 'react-icons/fi'
 import userPhoto from '../assets/placeholder.jpg'
+import { useAuthStatus } from '../hooks/useAuthStatus'
 
 const Header = () => {
-  const [user, setUser] = useState(null)
   const [isOpen, setIsOpen] = useState(false)
+  const { loggedIn, checkingStatus } = useAuthStatus()
 
   const auth = getAuth()
 
-  useEffect(() => {
-    setUser(auth.currentUser)
-  }, [])
+  const navigate = useNavigate()
+
+  const onLogout = () => {
+    auth.signOut()
+    navigate(0)
+  }
 
   const toggleOpen = () => {
     setIsOpen((value) => !value)
@@ -40,7 +44,7 @@ const Header = () => {
         >
           Offers
         </Link>
-        {user ? (
+        {loggedIn || checkingStatus ? (
           <div className='relative z-50'>
             <div
               onClick={toggleOpen}
@@ -55,11 +59,11 @@ const Header = () => {
             {/* <p className='cursor-pointer'>{user.displayName}</p> */}
             {isOpen && (
               <div className='absolute top-[50px] right-0 bg-dark-400 rounded-md py-4 px-5 w-[200px] overflow-hidden'>
-                <h3 className='text-center mb-4'>{user.displayName}</h3>
+                {/* <h3 className='text-center mb-4'>{user.displayName}</h3> */}
 
                 <Link
                   to='/profile'
-                  className='flex items-center justify-center py-2 border-t border-solid border-slate-500 hover:text-primary-300'
+                  className='flex items-center justify-center py-2 hover:text-primary-300'
                 >
                   <HiUserCircle
                     size={28}
@@ -69,10 +73,13 @@ const Header = () => {
                     Profile
                   </span>
                 </Link>
-                <Link className='flex items-center justify-center py-2 hover:text-primary-300 w-full transition duration-500'>
+                <button
+                  onClick={onLogout}
+                  className='flex items-center justify-center py-2 hover:text-primary-300 w-full transition duration-500'
+                >
                   <FiLogOut className='max-w-[20px] mr-2' />
                   <span>Logout</span>
-                </Link>
+                </button>
               </div>
             )}
           </div>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import { getAuth } from 'firebase/auth'
 import { useNavigate, Link } from 'react-router-dom'
 
@@ -15,14 +15,14 @@ const Profile = () => {
 
   const onLogout = () => {
     auth.signOut()
-    navigate('/')
+    navigate(0)
   }
 
   return (
-    <div className='profile'>
-      <header className='profileHeader'>
-        <p className='pageHeader'>My Profile</p>
-        <button type='button' className='logOut' onClick={onLogout}>
+    <div>
+      <header>
+        <p>My Profile</p>
+        <button type='button' onClick={onLogout}>
           Logout
         </button>
       </header>
