@@ -13,6 +13,7 @@ import { db } from '../firebase.config'
 import { toast } from 'react-toastify'
 import Spinner from '../component/Spinner'
 import Heading from '../component/Heading'
+import ListingCard from '../component/ListingCard'
 
 const Category = () => {
   const [listings, setListings] = useState(null)
@@ -74,7 +75,11 @@ const Category = () => {
           <div>
             <div className='flex flex-wrap gap-4'>
               {listings.map((listing) => (
-                <h3>{listing.data.name}</h3>
+                <ListingCard
+                  listing={listing.data}
+                  id={listing.id}
+                  key={listing.id}
+                />
               ))}
             </div>
           </div>
