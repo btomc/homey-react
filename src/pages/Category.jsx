@@ -11,9 +11,9 @@ import {
 } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { toast } from 'react-toastify'
-import Spinner from '../component/Spinner'
-import Heading from '../component/Heading'
-import ListingCard from '../component/ListingCard'
+import Spinner from '../components/Spinner'
+import Heading from '../components/Heading'
+import ListingCard from '../components/ListingCard'
 
 const Category = () => {
   const [listings, setListings] = useState(null)
@@ -59,8 +59,8 @@ const Category = () => {
   }, [params.categoryName])
 
   return (
-    <div className='min-h-[600px] mb-32 py-5 px-10'>
-      <div className='flex items-center'>
+    <div className='min-h-[600px] py-5 px-10'>
+      <div className='flex items-center mb-4'>
         <Heading>
           {params.categoryName === 'rent'
             ? 'Places for rent'

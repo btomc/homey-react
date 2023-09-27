@@ -53,7 +53,7 @@ const Profile = () => {
   // console.log(auth.currentUser)
 
   return (
-    <div className='min-h-[600px] mb-32 py-5 px-10'>
+    <div className='min-h-[600px] py-5 px-10'>
       <div className='flex items-center'>
         <Heading>My Profile</Heading>
       </div>

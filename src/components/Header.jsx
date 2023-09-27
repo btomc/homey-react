@@ -46,7 +46,7 @@ const Header = () => {
           Sell
         </Link>
         <Link
-          to='/profile'
+          to='/offers'
           className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'
         >
           Offers
