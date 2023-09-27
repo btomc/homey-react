@@ -5,13 +5,13 @@ import {
 } from 'firebase/auth'
 import { db } from '../firebase.config'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
-import { FcGoogle } from 'react-icons/fc'
 import VisibilityIcon from '../assets/visibilityIcon.svg'
 import Input from '../component/Input'
 import Button from '../component/Button'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import OAuth from '../component/OAuth'
 
 const Register = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -72,6 +72,7 @@ const Register = () => {
             <Input
               type='text'
               id='name'
+              required
               placeholder='Enter your name'
               value={name}
               onChange={onChange}
@@ -82,17 +83,19 @@ const Register = () => {
             <Input
               type='email'
               id='email'
+              required
               placeholder='Enter your email'
               value={email}
               onChange={onChange}
             />
           </div>
-          <div className='mt-4 mb-3'>
+          <div className='mt-4 mb-8'>
             <label className='text-lg'>Password</label>
             <div className='relative'>
               <Input
                 type={showPassword ? 'text' : 'password'}
                 id='password'
+                required
                 value={password}
                 placeholder='Enter your password'
                 onChange={onChange}
@@ -105,14 +108,7 @@ const Register = () => {
               />
             </div>
           </div>
-          <div className='w-full flex justify-end mb-6'>
-            <Link
-              to='/forgot-password'
-              className='text-primary-300 text-base font-semibold'
-            >
-              Forgot Password
-            </Link>
-          </div>
+
           <Button big full>
             Register
           </Button>
@@ -130,12 +126,8 @@ const Register = () => {
               </div>
             </div>
 
-            <div className='mt-6 flex gap-2'>
-              <button className='flex items-center gap-4 w-full justify-center rounded-md bg-gray-50 px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50/70 focus:outline-offset-0'>
-                <FcGoogle size={28} />
-                <span>Continue with Google</span>
-              </button>
-            </div>
+            {/* Register with Google */}
+            <OAuth />
 
             <div className='flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500'>
               <p>Already have an account?</p>

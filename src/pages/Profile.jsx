@@ -49,6 +49,8 @@ const Profile = () => {
     }))
   }
 
+  // console.log(auth.currentUser)
+
   return (
     <div className='min-h-[600px] mb-32 py-5 px-10'>
       <div className='flex items-center'>
@@ -89,7 +91,7 @@ const Profile = () => {
               className={!changeDetails ? 'profileEmail' : 'profileEmailActive'}
               disabled={!changeDetails}
               value={email}
-              // onChange={onChange}
+              onChange={() => {}}
             />
           </form>
         </div>

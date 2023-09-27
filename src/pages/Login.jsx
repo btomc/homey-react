@@ -1,11 +1,11 @@
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { FcGoogle } from 'react-icons/fc'
 import VisibilityIcon from '../assets/visibilityIcon.svg'
 import Input from '../component/Input'
 import Button from '../component/Button'
 import { useState } from 'react'
 import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import OAuth from '../component/OAuth'
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false)
@@ -56,6 +56,7 @@ const Login = () => {
               type='email'
               id='email'
               placeholder='Enter your email'
+              required
               value={email}
               onChange={onChange}
             />
@@ -66,6 +67,7 @@ const Login = () => {
               <Input
                 type={showPassword ? 'text' : 'password'}
                 value={password}
+                required
                 id='password'
                 placeholder='Enter your email'
                 onChange={onChange}
@@ -103,12 +105,8 @@ const Login = () => {
               </div>
             </div>
 
-            <div className='mt-6 flex gap-2'>
-              <button className='flex items-center gap-4 w-full justify-center rounded-md bg-gray-50 px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50/70 focus:outline-offset-0'>
-                <FcGoogle size={28} />
-                <span>Continue with Google</span>
-              </button>
-            </div>
+            {/* Login with Google */}
+            <OAuth />
 
             <div className='flex gap-2 justify-center text-sm mt-6 px-2 text-gray-500'>
               <p>New to Homey?</p>

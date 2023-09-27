@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getAuth } from 'firebase/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { BiSolidHomeSmile } from 'react-icons/bi'
@@ -10,6 +10,7 @@ import { useAuthStatus } from '../hooks/useAuthStatus'
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false)
   const { loggedIn, checkingStatus } = useAuthStatus()
+  // const [user, setUser] = useState()
 
   const auth = getAuth()
 
