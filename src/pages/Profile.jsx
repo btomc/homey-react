@@ -4,9 +4,9 @@ import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase.config'
-import Input from '../component/Input'
-import Button from '../component/Button'
-import Heading from '../component/Heading'
+import Input from '../components/Input'
+import Button from '../components/Button'
+import Heading from '../components/Heading'
 
 const Profile = () => {
   const auth = getAuth()

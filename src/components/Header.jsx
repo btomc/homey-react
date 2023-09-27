@@ -3,6 +3,7 @@ import { getAuth } from 'firebase/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { BiSolidHomeSmile } from 'react-icons/bi'
 import { HiUserCircle } from 'react-icons/hi2'
+import { MdOutlineAddHome } from 'react-icons/md'
 import { FiLogOut } from 'react-icons/fi'
 import userPhoto from '../assets/placeholder.jpg'
 import { useAuthStatus } from '../hooks/useAuthStatus'
@@ -26,7 +27,7 @@ const Header = () => {
   }
 
   return (
-    <header className='w-full py-3 px-10 bg-dark-500 flex justify-between items-center border-b-2 border-solid border-light-500'>
+    <header className='w-full py-3 px-10 bg-dark-500 flex justify-between items-center border-b-2 border-solid border-slate-700'>
       <Link to='/' className='text-light-100 flex items-center'>
         <BiSolidHomeSmile className='text-primary-100' size={38} />
         <span className='text-2xl ml-1'>Homey</span>
@@ -67,26 +68,42 @@ const Header = () => {
             {isOpen && (
               <div className='absolute top-[50px] right-0 bg-dark-400 rounded-md py-4 px-5 w-[200px] overflow-hidden'>
                 {/* <h3 className='text-center mb-4'>{user.displayName}</h3> */}
-
-                <Link
-                  to='/profile'
-                  className='flex items-center justify-center py-2 hover:text-primary-300'
+                <div
+                  className='flex flex-col items-center justify-center
+                '
                 >
-                  <HiUserCircle
-                    size={28}
-                    className='max-w-[20px] mr-2 transition duration-500'
-                  />
-                  <span className='max-w-[100px] mr-2 transition duration-500'>
-                    Profile
-                  </span>
-                </Link>
-                <button
-                  onClick={onLogout}
-                  className='flex items-center justify-center py-2 hover:text-primary-300 w-full transition duration-500'
-                >
-                  <FiLogOut className='max-w-[20px] mr-2' />
-                  <span>Logout</span>
-                </button>
+                  <Link
+                    to='/my-listings'
+                    className='flex items-center justify-start py-2 hover:text-primary-300'
+                  >
+                    <MdOutlineAddHome
+                      size={28}
+                      className='max-w-[20px] mr-2 transition duration-500 mb-[2px]'
+                    />
+                    <span className='max-w-[100px] mr-2 transition duration-500'>
+                      Listings
+                    </span>
+                  </Link>
+                  <Link
+                    to='/profile'
+                    className='flex items-center justify-center py-2 hover:text-primary-300'
+                  >
+                    <HiUserCircle
+                      size={28}
+                      className='max-w-[20px] mr-2 transition duration-500'
+                    />
+                    <span className='max-w-[100px] mr-2 transition duration-500'>
+                      Profile
+                    </span>
+                  </Link>
+                  <button
+                    onClick={onLogout}
+                    className='flex items-center justify-center py-2 hover:text-primary-300 w-full transition duration-500'
+                  >
+                    <FiLogOut className='max-w-[20px] mr-2' />
+                    <span>Logout</span>
+                  </button>
+                </div>
               </div>
             )}
           </div>

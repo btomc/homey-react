@@ -1,4 +1,4 @@
-import bg from '../assets/homey-7.jpg'
+import bg from '../assets/homey-3.jpg'
 import { Link } from 'react-router-dom'
 import Button from './Button'
 
