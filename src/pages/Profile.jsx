@@ -6,6 +6,7 @@ import { updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import Input from '../component/Input'
 import Button from '../component/Button'
+import Heading from '../component/Heading'
 
 const Profile = () => {
   const auth = getAuth()
@@ -54,9 +55,7 @@ const Profile = () => {
   return (
     <div className='min-h-[600px] mb-32 py-5 px-10'>
       <div className='flex items-center'>
-        <h2 className='text-3xl text-primary-100 font-medium my-4'>
-          My Profile
-        </h2>
+        <Heading>My Profile</Heading>
       </div>
 
       <div className='w-[50%] '>

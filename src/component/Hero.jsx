@@ -1,5 +1,6 @@
 import bg from '../assets/homey-7.jpg'
 import { Link } from 'react-router-dom'
+import Button from './Button'
 
 const Hero = () => {
   return (
@@ -20,17 +21,11 @@ const Hero = () => {
           </h1>
           <p className='text-3xl mb-2'>Find a home that is perfect for you</p>
           <div className='mt-4 flex gap-4 text-lg'>
-            <Link
-              to='/category/rent'
-              className='bg-primary-100 py-4 px-8 rounded-md'
-            >
-              Rent
+            <Link to='/category/rent'>
+              <Button big>Rent</Button>
             </Link>
-            <Link
-              to='/category/sell'
-              className='bg-primary-100 py-4 px-8 rounded-md'
-            >
-              Sell
+            <Link to='/category/sale'>
+              <Button big>Sell</Button>
             </Link>
           </div>
         </div>

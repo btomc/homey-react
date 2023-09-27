@@ -9,6 +9,7 @@ import ForgotPassword from './pages/ForgotPassword'
 import Home from './pages/Home'
 import AppLayout from './component/AppLayout'
 import PrivateRoute from './component/PrivateRoute'
+import Category from './pages/Category'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path='/' element={<AppLayout />}>
             <Route index={true} path='/' element={<Home />} />
             <Route path='/offers' element={<Offers />} />
+            <Route path='/category/:categoryName' element={<Category />} />
             <Route path='/profile' element={<PrivateRoute />}>
               <Route path='/profile' element={<Profile />} />
             </Route>

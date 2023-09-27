@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { getAuth } from 'firebase/auth'
 import { Link, useNavigate } from 'react-router-dom'
 import { BiSolidHomeSmile } from 'react-icons/bi'
@@ -33,10 +33,16 @@ const Header = () => {
       </Link>
 
       <nav className='text-light-100 flex gap-6 text-lg items-center z-50'>
-        <Link className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'>
+        <Link
+          to='/category/rent'
+          className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'
+        >
           Rent
         </Link>
-        <Link className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'>
+        <Link
+          to='/category/sale'
+          className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'
+        >
           Sell
         </Link>
         <Link
