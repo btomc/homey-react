@@ -8,6 +8,11 @@ const Input = ({
   name,
   checked,
   onFocusLight,
+  min,
+  max,
+  marginVer,
+  multiple,
+  accept,
 }) => {
   return (
     <input
@@ -19,9 +24,13 @@ const Input = ({
       name={name}
       checked={checked}
       onChange={onChange}
-      className={`p-3 rounded text-base outline-none border-2 border-solid border-slate-200 focus:border-solid focus:border-primary-100 w-full z-30 ${
+      min={min}
+      max={max}
+      multiple={multiple}
+      accept={accept}
+      className={`p-3 rounded text-base outline-none border-2 border-solid border-slate-200 focus:border-solid w-full z-30 ${
         onFocusLight ? 'focus:border-slate-400' : 'focus:border-primary-100'
-      }`}
+      } ${marginVer ? 'mt-2 mb-4' : ''}`}
     />
   )
 }

@@ -11,3 +11,12 @@
 :root {
   height: 100%;
 }
+
+::-webkit-file-upload-button {
+  background-color: #2949c6;
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
