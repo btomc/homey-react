@@ -9,8 +9,16 @@ import { FaParking } from 'react-icons/fa'
 import { TbSofa } from 'react-icons/tb'
 import { IoBed } from 'react-icons/io5'
 import { FaBath } from 'react-icons/fa'
+import { RiShieldStarFill } from 'react-icons/ri'
 import Spinner from '../components/Spinner'
 import Button from '../components/Button'
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper/modules'
+
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
 
 const ListingDetails = () => {
   const [listing, setListing] = useState(null)
@@ -42,10 +50,38 @@ const ListingDetails = () => {
 
   return (
     <div className='min-h-[600px] h-full py-5 px-10 flex flex-col'>
-      <div className='relative h-[400px]'>
-        {/* Slider */}
+      <div className='relative pt-6'>
+        <Swiper
+          modules={[Navigation, Pagination, Scrollbar, A11y]}
+          slidesPerView={1}
+          pagination={{ clickable: true }}
+          scrollbar={{ draggable: true }}
+          navigation
+          className='lg:h-[690px] xl:h-[780px] 2xl:h-[860px]'
+        >
+          {listing.imageUrls.map((url, index) => {
+            return (
+              <SwiperSlide key={index}>
+                <div
+                  style={{
+                    background: `url(${listing.imageUrls[index]}) center no-repeat`,
+                    backgroundSize: 'cover',
+                    minHeight: '30rem',
+                  }}
+                  className='relative w-full h-full rounded'
+                ></div>
+              </SwiperSlide>
+            )
+          })}
+        </Swiper>
+
+        {listing.offer && (
+          <div className='absolute top-[38px] right-[76px] z-20 shadow-2xl bg-white/80 rounded-full w-12 h-12 flex justify-center items-center'>
+            <RiShieldStarFill size={32} className='text-primary-100' />
+          </div>
+        )}
         <div
-          className='absolute cursor-pointer top-[8px] right-[-8px] z-20 bg-white rounded-full w-12 h-12 flex justify-center items-center'
+          className='absolute cursor-pointer top-[38px] right-[16px] z-20 shadow-2xl bg-white rounded-full w-12 h-12 flex justify-center items-center'
           onClick={() => {
             navigator.clipboard.writeText(window.location.href)
             setShareLinkCopied(true)
@@ -57,12 +93,12 @@ const ListingDetails = () => {
           <PiShareFatFill size={22} className='text-primary-100' />
         </div>
         {shareLinkCopied && (
-          <p className='absolute top-[13px] right-[48px] z-20 bg-white rounded-2xl py-2 px-4 font-medium'>
+          <p className='absolute top-[98px] right-[16px] z-20 bg-white rounded-2xl py-2 px-4 font-medium'>
             Link Copied!
           </p>
         )}
       </div>
-      <div className='flex flex-col md:flex-row'>
+      <div className='flex flex-col md:flex-row mt-8'>
         <div className='w-full md:w-[50%]'>
           <div className='flex items-center gap-5'>
             <div className='flex gap-2 items-center'>

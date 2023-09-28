@@ -29,7 +29,7 @@ const Header = () => {
   return (
     <header className='w-full py-3 px-10 bg-dark-500 flex justify-between items-center border-b-2 border-solid border-slate-700'>
       <Link to='/' className='text-light-100 flex items-center'>
-        <BiSolidHomeSmile className='text-primary-100' size={38} />
+        <BiSolidHomeSmile className='text-primary-300' size={38} />
         <span className='text-2xl ml-1'>Homey</span>
       </Link>
 
