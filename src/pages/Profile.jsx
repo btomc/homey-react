@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { getAuth, updateProfile } from 'firebase/auth'
-import { useNavigate, Link } from 'react-router-dom'
+// import { useNavigate, Link } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { updateDoc, doc } from 'firebase/firestore'
 import { db } from '../firebase.config'
@@ -18,7 +18,7 @@ const Profile = () => {
 
   const { name, email } = formData
 
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   // const onLogout = () => {
   //   auth.signOut()
@@ -58,7 +58,7 @@ const Profile = () => {
         <Heading>My Profile</Heading>
       </div>
 
-      <div className='w-[50%] '>
+      <div className='w-full md:w-[50%] '>
         <div className='flex justify-between items-center py-4'>
           <p className='text-lg font-medium'>Personal Details</p>
           <Button

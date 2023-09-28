@@ -56,7 +56,7 @@ const Header = () => {
           <div className='relative z-50'>
             <div
               onClick={toggleOpen}
-              className='h-[2.5rem] w-[2.5rem] rounded-full mr-2'
+              className='h-[2.5rem] w-[2.5rem] rounded-full'
             >
               <img
                 src={userPhoto}
