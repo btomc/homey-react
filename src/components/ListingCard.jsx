@@ -36,7 +36,7 @@ const ListingCard = ({ listing, id }) => {
       <div className='flex justify-between w-full'>
         <p>
           {/* <span>$</span> */}
-          <span className='font-semibold'>
+          <span className='font-semibold flex items-center gap-2'>
             {listing.offer ? (
               <span className='text-red-600'>
                 $
@@ -52,7 +52,7 @@ const ListingCard = ({ listing, id }) => {
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
               </span>
             )}
-            <span className='text-primary-100'>
+            <span className='font-medium'>
               {listing.type === 'rent' && ' / Month'}
             </span>
           </span>
