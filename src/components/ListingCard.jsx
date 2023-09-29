@@ -2,8 +2,9 @@ import { Link } from 'react-router-dom'
 import { IoBed } from 'react-icons/io5'
 import { FaBath } from 'react-icons/fa'
 import { RiShieldStarFill } from 'react-icons/ri'
+import { FaTrash } from 'react-icons/fa'
 
-const ListingCard = ({ listing, id }) => {
+const ListingCard = ({ listing, id, onDelete }) => {
   // console.log(listing)
   return (
     <div className='flex flex-col justify-center items-start gap-y-1  p-4 rounded-lg w-[272px]  relative transition-all duration-300 ease-in z-0 hover:scale-[1.025] hover:cursor-pointer hover:bg-gradient-to-r from-white to-[rgba(136,160,255,0.21)] hover:shadow-[0_72px_49px_-51px_rgba(136,160,255,0.21)] border border-solid border-slate-200'>
@@ -72,6 +73,16 @@ const ListingCard = ({ listing, id }) => {
           </span>
         </div>
       </div>
+
+      {onDelete && (
+        <div className='mt-2'>
+          <FaTrash
+            className='text-red-500 hover:text-red-500/50'
+            size={18}
+            onClick={() => onDelete(listing.id, listing.name)}
+          />
+        </div>
+      )}
     </div>
   )
 }

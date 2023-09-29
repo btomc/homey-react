@@ -17,6 +17,7 @@ import { MdOutlineAddHome } from 'react-icons/md'
 import { Link } from 'react-router-dom'
 import { getAuth } from 'firebase/auth'
 import Spinner from '../components/Spinner'
+import { toast } from 'react-toastify'
 
 const Listings = () => {
   const auth = getAuth()
@@ -54,6 +55,17 @@ const Listings = () => {
     return <Spinner />
   }
 
+  const onDelete = async (listingId) => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      await deleteDoc(doc(db, 'listings', listingId))
+      const updatedListings = listings.filter(
+        (listing) => listing.id !== listingId
+      )
+      setListings(updatedListings)
+      toast.success('Successfully deleted listing')
+    }
+  }
+
   return (
     <div className='min-h-[600px] py-5 px-10'>
       <div className='flex items-center justify-between mb-4'>
@@ -73,6 +85,7 @@ const Listings = () => {
                 key={listing.id}
                 listing={listing.data}
                 id={listing.id}
+                onDelete={() => onDelete(listing.id)}
               />
             ))}
           </>
