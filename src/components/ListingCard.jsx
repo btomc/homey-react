@@ -6,12 +6,11 @@ import { RiShieldStarFill } from 'react-icons/ri'
 const ListingCard = ({ listing, id }) => {
   // console.log(listing)
   return (
-    <div className='flex flex-col justify-center items-start gap-y-1 p-4 rounded-lg max-w-[272px]  relative transition-all duration-300 ease-in z-0 hover:scale-[1.025] hover:cursor-pointer hover:bg-gradient-to-r from-white to-[rgba(136,160,255,0.21)] hover:shadow-[0_72px_49px_-51px_rgba(136,160,255,0.21)] border border-solid border-slate-200'>
+    <div className='flex flex-col justify-center items-start gap-y-1  p-4 rounded-lg w-[272px]  relative transition-all duration-300 ease-in z-0 hover:scale-[1.025] hover:cursor-pointer hover:bg-gradient-to-r from-white to-[rgba(136,160,255,0.21)] hover:shadow-[0_72px_49px_-51px_rgba(136,160,255,0.21)] border border-solid border-slate-200'>
       {listing.offer && (
-        <RiShieldStarFill
-          size={28}
-          className='text-primary-100 absolute top-[25px] right-[25px] z-10'
-        />
+        <div className='absolute top-[25px] right-[25px] z-20 shadow-2xl bg-white/80 rounded-full w-10 h-10 flex justify-center items-center'>
+          <RiShieldStarFill size={28} className='text-primary-100' />
+        </div>
       )}
       <Link
         to={`/category/${listing.type}/${id}`}

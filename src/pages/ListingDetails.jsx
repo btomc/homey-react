@@ -57,7 +57,7 @@ const ListingDetails = () => {
           pagination={{ clickable: true }}
           scrollbar={{ draggable: true }}
           navigation
-          className='lg:h-[690px] xl:h-[780px] 2xl:h-[860px]'
+          className='lg:h-[690px] xl:h-[770px] 2xl:h-[850px]'
         >
           {listing.imageUrls.map((url, index) => {
             return (
