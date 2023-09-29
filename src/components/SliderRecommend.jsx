@@ -1,7 +1,9 @@
 import { collection, getDocs, query, limit, orderBy } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/navigation'
 
 import Spinner from '../components/Spinner'
 import { useEffect, useState } from 'react'
@@ -47,13 +49,12 @@ const SliderRecommend = () => {
       <div className='py-5 px-10 mb-4'>
         <Heading>Recommended</Heading>
 
-        <Swiper navigation {...sliderSettings}>
+        <Swiper {...sliderSettings} modules={[Navigation]} navigation>
           {listings.map(({ data, id }) => (
             <SwiperSlide
               key={id}
-              //   id={listing.id}
               onClick={() => navigate(`/category/${data.type}/${id}`)}
-              className='mt-4 mx-4 xl:mx-1'
+              className='mt-4 mx-4 xl:mx-1 w-[272px] max-w-[272px]'
             >
               <ListingCard listing={data} />
             </SwiperSlide>

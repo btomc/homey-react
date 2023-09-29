@@ -8,7 +8,9 @@ import {
 } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation } from 'swiper/modules'
 import 'swiper/css'
+import 'swiper/css/navigation'
 
 import Spinner from '../components/Spinner'
 import { useEffect, useState } from 'react'
@@ -71,13 +73,12 @@ const SliderOffers = () => {
       <div className='py-5 px-10 mb-4'>
         <Heading>Special Offers</Heading>
 
-        <Swiper navigation {...sliderSettings}>
+        <Swiper navigation {...sliderSettings} modules={[Navigation]}>
           {listings.map(({ data, id }) => (
             <SwiperSlide
               key={id}
-              //   id={listing.id}
               onClick={() => navigate(`/category/${data.type}/${id}`)}
-              className='mt-4 mx-4 xl:mx-1'
+              className='mt-4 mx-4 xl:mx-1 w-[272px] max-w-[272px]'
             >
               <ListingCard listing={data} />
             </SwiperSlide>

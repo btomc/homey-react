@@ -10,7 +10,7 @@ const Hero = () => {
         <img
           src={bg}
           alt='home'
-          className='w-full h-full object-cover brightness-90 z-[-1] overflow-hidden'
+          className='w-full h-full object-cover brightness-110 z-[-1] overflow-hidden'
         />
       </div>
       {/* Content */}

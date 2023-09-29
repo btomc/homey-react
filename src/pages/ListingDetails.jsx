@@ -139,11 +139,16 @@ const ListingDetails = () => {
                 </span>
               </div>
             ) : (
-              <span className='text-black'>
+              <span className='text-black flex items-center gap-2'>
                 $
                 {listing.regularPrice
                   .toString()
                   .replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+                {listing.type === 'rent' ? (
+                  <span className='text-lg mr-2'> / Month</span>
+                ) : (
+                  ''
+                )}
               </span>
             )}
           </div>
