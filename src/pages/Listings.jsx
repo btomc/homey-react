@@ -1,13 +1,62 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
+import {
+  updateDoc,
+  doc,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  deleteDoc,
+} from 'firebase/firestore'
+import { db } from '../firebase.config'
 import Heading from '../components/Heading'
 import Button from '../components/Button'
+import ListingCard from '../components/ListingCard'
 import { MdOutlineAddHome } from 'react-icons/md'
 import { Link } from 'react-router-dom'
+import { getAuth } from 'firebase/auth'
+import Spinner from '../components/Spinner'
 
 const Listings = () => {
+  const auth = getAuth()
+  const [loading, setLoading] = useState(true)
+  const [listings, setListings] = useState(null)
+
+  useEffect(() => {
+    const fetchUserListings = async () => {
+      const listingsRef = collection(db, 'listings')
+
+      const q = query(
+        listingsRef,
+        where('userRef', '==', auth.currentUser.uid),
+        orderBy('timestamp', 'desc')
+      )
+
+      const querySnap = await getDocs(q)
+
+      let listings = []
+
+      querySnap.forEach((doc) => {
+        return listings.push({
+          id: doc.id,
+          data: doc.data(),
+        })
+      })
+
+      setListings(listings)
+      setLoading(false)
+    }
+    fetchUserListings()
+  }, [auth.currentUser.uid])
+
+  if (loading) {
+    return <Spinner />
+  }
+
   return (
     <div className='min-h-[600px] py-5 px-10'>
-      <div className='flex items-center justify-between'>
+      <div className='flex items-center justify-between mb-4'>
         <Heading>My Listings</Heading>
         <Link to='/create-listing'>
           <Button>
@@ -15,6 +64,19 @@ const Listings = () => {
             Create Listing
           </Button>
         </Link>
+      </div>
+      <div className='flex flex-wrap gap-4'>
+        {!loading && listings?.length > 0 && (
+          <>
+            {listings.map((listing) => (
+              <ListingCard
+                key={listing.id}
+                listing={listing.data}
+                id={listing.id}
+              />
+            ))}
+          </>
+        )}
       </div>
     </div>
   )

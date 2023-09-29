@@ -98,8 +98,8 @@ const ListingDetails = () => {
           </p>
         )}
       </div>
-      <div className='flex flex-col md:flex-row mt-8'>
-        <div className='w-full md:w-[50%]'>
+      <div className='flex flex-col lg:flex-row mt-8'>
+        <div className='w-full lg:w-[50%]'>
           <div className='flex items-center gap-5'>
             <div className='flex gap-2 items-center'>
               <p className='text-base py-2 px-3 bg-primary-300 text-white rounded-full mb-1'>
@@ -207,9 +207,7 @@ const ListingDetails = () => {
           </div>
         </div>
         {/* MAP */}
-        <div className='bg-green-500 w-full  md:w-[50%]'>
-          <p>Map</p>
-        </div>
+        <div className='lg:w-[50%]'>Map</div>
       </div>
     </div>
   )

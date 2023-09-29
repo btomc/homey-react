@@ -18,13 +18,6 @@ const Profile = () => {
 
   const { name, email } = formData
 
-  // const navigate = useNavigate()
-
-  // const onLogout = () => {
-  //   auth.signOut()
-  //   navigate(0)
-  // }
-
   const onSubmit = async () => {
     try {
       if (auth.currentUser.displayName !== name) {

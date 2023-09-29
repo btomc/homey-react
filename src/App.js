@@ -23,14 +23,15 @@ function App() {
             <Route index={true} path='/' element={<Home />} />
             <Route path='/offers' element={<Offers />} />
             <Route path='/category/:categoryName' element={<Category />} />
-            <Route path='/profile' element={<PrivateRoute />}>
+            <Route path='' element={<PrivateRoute />}>
               <Route path='/profile' element={<Profile />} />
+              <Route path='/my-listings' element={<Listings />} />
             </Route>
             <Route path='/sign-in' element={<Login />} />
             <Route path='/sign-up' element={<Register />} />
             <Route path='/forgot-password' element={<ForgotPassword />} />
             <Route path='/create-listing' element={<CreateListing />} />
-            <Route path='/my-listings' element={<Listings />} />
+
             <Route
               path='/category/:categoryName/:listingId'
               element={<ListingDetails />}
