@@ -18,7 +18,7 @@ const Header = () => {
   const auth = getAuth()
 
   const navigate = useNavigate()
-  let menuRef = useRef()
+  // let menuRef = useRef()
 
   const onLogout = () => {
     auth.signOut()
@@ -33,20 +33,20 @@ const Header = () => {
     setOpenMenu((openMenu) => !openMenu)
   }
 
-  useEffect(() => {
-    let handler = (e) => {
-      if (!menuRef.current.contains(e.target)) {
-        setIsOpen(false)
-        // setOpenMenu(false)
-      }
-    }
+  // useEffect(() => {
+  //   let handler = (e) => {
+  //     if (!menuRef.current.contains(e.target)) {
+  //       setIsOpen(false)
+  //       // setOpenMenu(false)
+  //     }
+  //   }
 
-    document.addEventListener('mousedown', handler)
+  //   document.addEventListener('mousedown', handler)
 
-    return () => {
-      document.removeEventListener('mousedown', handler)
-    }
-  }, [menuRef])
+  //   return () => {
+  //     document.removeEventListener('mousedown', handler)
+  //   }
+  // }, [menuRef])
 
   return (
     <header className='w-full py-3 px-10 bg-dark-500 flex justify-between items-center border-b-2 border-solid border-slate-700'>
@@ -57,7 +57,7 @@ const Header = () => {
       </Link>
 
       <nav className='text-light-100 flex justify-between w-full sm:justify-end gap-5 text-lg items-center z-50'>
-        <div ref={menuRef} className='relative'>
+        <div className='relative'>
           {/* Mobile Menu */}
           <div
             onClick={toggleOpenMenu}
@@ -138,7 +138,7 @@ const Header = () => {
 
         {/* Logged user menu */}
         {loggedIn || checkingStatus ? (
-          <div className='relative z-50' ref={menuRef}>
+          <div className='relative z-50'>
             <div className='flex gap-2'>
               <Link
                 to='/create-listing'
