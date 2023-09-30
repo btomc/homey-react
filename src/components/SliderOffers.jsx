@@ -70,7 +70,7 @@ const SliderOffers = () => {
 
   return (
     listings && (
-      <div className='pb-5 px-10 mb-4'>
+      <div className='pb-10 px-10'>
         <Heading>Special Offers</Heading>
 
         <Swiper navigation {...sliderSettings} modules={[Navigation]}>

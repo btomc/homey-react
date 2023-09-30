@@ -1,5 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Header from './Header'
+import Footer from './Footer'
 
 const AppLayout = () => {
   return (
@@ -8,7 +9,7 @@ const AppLayout = () => {
       <main className='bg-gray-50'>
         <Outlet />
       </main>
-      {/* Footer  */}
+      <Footer />
     </>
   )
 }

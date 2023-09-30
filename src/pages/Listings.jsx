@@ -66,7 +66,7 @@ const Listings = () => {
   }
 
   return (
-    <div className='min-h-[600px] py-5 px-10'>
+    <div className='min-h-[600px] pt-5 px-10 pb-10'>
       <div className='flex flex-col xs:flex-row gap-y-4 items-center justify-between mb-4'>
         <Heading>My Listings</Heading>
         <Link to='/create-listing'>

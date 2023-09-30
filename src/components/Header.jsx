@@ -130,7 +130,7 @@ const Header = () => {
           </Link>
           <Link
             to='/offers'
-            className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'
+            className='mx-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'
           >
             Offers
           </Link>

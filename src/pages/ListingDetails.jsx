@@ -45,23 +45,23 @@ const ListingDetails = () => {
     fetchListing()
   }, [navigate, params.listingId])
 
-  const onBack = () => {
-    navigate(-1)
-  }
+  // const onBack = () => {
+  //   navigate(-1)
+  // }
 
   if (loading) {
     return <Spinner />
   }
 
   return (
-    <div className='min-h-[600px] h-full py-5 px-10 flex flex-col'>
+    <div className='min-h-[600px] h-full pt-5 px-10 flex flex-col pb-10'>
       <div className='relative pt-6'>
-        <button
+        <Link
+          to={listing.type === 'rent' ? '/category/rent' : '/category/sale'}
           className='absolute cursor-pointer top-[38px] left-[16px] z-20 shadow-2xl bg-white rounded-full w-12 h-12 flex justify-center items-center'
-          onClick={onBack}
         >
           <MdOutlineKeyboardBackspace size={30} className='text-primary-100' />
-        </button>
+        </Link>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           slidesPerView={1}
