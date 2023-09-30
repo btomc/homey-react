@@ -9,6 +9,7 @@ import { FaParking } from 'react-icons/fa'
 import { TbSofa } from 'react-icons/tb'
 import { IoBed } from 'react-icons/io5'
 import { FaBath } from 'react-icons/fa'
+import { MdOutlineKeyboardBackspace } from 'react-icons/md'
 import { RiShieldStarFill } from 'react-icons/ri'
 import Spinner from '../components/Spinner'
 import Button from '../components/Button'
@@ -44,6 +45,10 @@ const ListingDetails = () => {
     fetchListing()
   }, [navigate, params.listingId])
 
+  const onBack = () => {
+    navigate(-1)
+  }
+
   if (loading) {
     return <Spinner />
   }
@@ -51,6 +56,12 @@ const ListingDetails = () => {
   return (
     <div className='min-h-[600px] h-full py-5 px-10 flex flex-col'>
       <div className='relative pt-6'>
+        <button
+          className='absolute cursor-pointer top-[38px] left-[16px] z-20 shadow-2xl bg-white rounded-full w-12 h-12 flex justify-center items-center'
+          onClick={onBack}
+        >
+          <MdOutlineKeyboardBackspace size={30} className='text-primary-100' />
+        </button>
         <Swiper
           modules={[Navigation, Pagination, Scrollbar, A11y]}
           slidesPerView={1}
@@ -68,7 +79,7 @@ const ListingDetails = () => {
                     backgroundSize: 'cover',
                     minHeight: '30rem',
                   }}
-                  className='relative w-full h-full rounded'
+                  className='relative w-full h-full rounded-lg'
                 ></div>
               </SwiperSlide>
             )
@@ -207,7 +218,7 @@ const ListingDetails = () => {
           </div>
         </div>
         {/* MAP */}
-        <div className='lg:w-[50%]'>Map</div>
+        <div className='lg:w-[50%]'></div>
       </div>
     </div>
   )

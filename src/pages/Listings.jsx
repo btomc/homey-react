@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import {
-  updateDoc,
   doc,
   collection,
   getDocs,
@@ -68,7 +67,7 @@ const Listings = () => {
 
   return (
     <div className='min-h-[600px] py-5 px-10'>
-      <div className='flex items-center justify-between mb-4'>
+      <div className='flex flex-col xs:flex-row gap-y-4 items-center justify-between mb-4'>
         <Heading>My Listings</Heading>
         <Link to='/create-listing'>
           <Button>
@@ -77,7 +76,7 @@ const Listings = () => {
           </Button>
         </Link>
       </div>
-      <div className='flex flex-wrap gap-4'>
+      <div className='mt-8 xs:mt-0 flex flex-wrap gap-4'>
         {!loading && listings?.length > 0 && (
           <>
             {listings.map((listing) => (

@@ -3,6 +3,9 @@ module.exports = {
   content: ['./src/**/*.{html,js,jsx}'],
   theme: {
     extend: {
+      screens: {
+        xs: '490px',
+      },
       colors: {
         'light-20': '#f2f2f2',
         'light-50': '#f7f7f7',
@@ -12,6 +15,7 @@ module.exports = {
         'light-600': '#eff1fc',
         'primary-100': '#2949c6',
         'primary-300': '#4066ff',
+        'primary-400': '#3353d6',
         'primary-700': '#20399C',
         'primary-gradient':
           'linear-gradient(97.05deg, #4066ff 3.76%, #2949c6 100%)',

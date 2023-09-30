@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Button = ({
   children,
   disabled,
@@ -10,6 +8,7 @@ const Button = ({
   value,
   id,
   secondary,
+  light,
 }) => {
   return (
     <button
@@ -24,7 +23,7 @@ const Button = ({
         secondary
           ? 'text-gray-600 bg-transparent hover:bg-gray-300/70 border-2 border-solid border-gray-300 '
           : 'text-white bg-primary-100 hover:bg-primary-700'
-      } `}
+      } ${light ? 'bg-primary-300 hover:bg-[#3353d6]' : ''} `}
     >
       {children}
     </button>
