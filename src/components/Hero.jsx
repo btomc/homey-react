@@ -22,9 +22,9 @@ const Hero = () => {
           <p className='text-sm xs:text-xl md:text-2xl lg:text-3xl mb-2'>
             Find a home that is perfect for you
           </p>
-          <div className='mt-12 xs:mt-4 flex gap-4 text-lg'>
+          <div className='mt-12 xs:mt-4 flex text-lg'>
             <Link to='/category/rent'>
-              <Button big light>
+              <Button big marRight light>
                 Rent
               </Button>
             </Link>

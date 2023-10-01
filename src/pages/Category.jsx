@@ -125,7 +125,7 @@ const Category = () => {
       ) : listings && listings.length > 0 ? (
         <>
           <div>
-            <div className='flex flex-wrap gap-4 '>
+            <div className='flex flex-wrap'>
               {listings.map((listing) => (
                 <ListingCard
                   listing={listing.data}

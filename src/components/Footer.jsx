@@ -40,7 +40,7 @@ const Footer = () => {
             <GrLinkedinOption />
           </a>
         </div>
-        <div className='text-light-50 flex flex-col items-center sm:items-start sm:flex-row gap-6 py-4 lg:py-0'>
+        <div className='text-light-50 flex flex-col items-center sm:items-start sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 py-4 lg:py-0'>
           <p>About us</p>
           <p>Support</p>
           <p>Privacy policy</p>

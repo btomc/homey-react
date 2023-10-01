@@ -59,9 +59,10 @@ const Login = () => {
               required
               value={email}
               onChange={onChange}
+              marginTop
             />
           </div>
-          <div className='mt-4 mb-3'>
+          <div className='mt-4 mb-8'>
             <label className='text-lg'>Password</label>
             <div className='relative'>
               <Input
@@ -71,23 +72,17 @@ const Login = () => {
                 id='password'
                 placeholder='Enter your email'
                 onChange={onChange}
+                marginTop
               />
               <img
                 onClick={() => setShowPassword((prevState) => !prevState)}
-                className='absolute cursor-pointer top-[-4%] right-[1%] p-4 text-black z-50'
+                className='absolute cursor-pointer top-[10%] right-[1%] p-4 text-black z-50'
                 src={VisibilityIcon}
                 alt='show password'
               />
             </div>
           </div>
-          <div className='w-full flex justify-end mb-6'>
-            <Link
-              to='/forgot-password'
-              className='text-primary-300 text-base font-semibold'
-            >
-              Forgot Password
-            </Link>
-          </div>
+
           <Button big full>
             Login
           </Button>

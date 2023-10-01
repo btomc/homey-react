@@ -167,31 +167,31 @@ const ListingDetails = () => {
             {listing.name}
           </p>
 
-          <ul className='my-4 flex flex-col gap-3'>
-            <li className='flex gap-3 items-center'>
-              <IoBed size={26} className='text-slate-400' />
+          <ul className='my-4 flex flex-col'>
+            <li className='flex items-center my-1.5'>
+              <IoBed size={26} className='text-slate-400 mr-3' />
               {listing.bedrooms > 1
                 ? `${listing.bedrooms} Bedrooms`
                 : '1 Bedroom'}
             </li>
-            <li className='flex gap-3 items-center'>
-              <FaBath size={24} className='text-slate-400' />
+            <li className='flex items-center my-1.5'>
+              <FaBath size={24} className='text-slate-400 mr-3' />
               {listing.bathrooms > 1
                 ? `${listing.bathrooms} Bathrooms`
                 : '1 Bathroom'}
             </li>
             <li>
               {listing.parking && (
-                <p className='flex gap-3 items-center'>
-                  <FaParking size={26} className='text-slate-400' /> Parking
-                  Spot
+                <p className='flex items-center my-1.5'>
+                  <FaParking size={26} className='text-slate-400 mr-3' />{' '}
+                  Parking Spot
                 </p>
               )}
             </li>
             <li>
               {listing.furnished && (
-                <p className='flex gap-3 items-center'>
-                  <TbSofa size={26} className='text-slate-400' /> Furnished
+                <p className='flex items-center my-1.5'>
+                  <TbSofa size={26} className='text-slate-400 mr-3' /> Furnished
                 </p>
               )}
             </li>

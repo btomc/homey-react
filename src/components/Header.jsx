@@ -68,7 +68,7 @@ const Header = () => {
           {openMenu && (
             <div className='sm:hidden absolute top-[50px] -left-10 xs:left-0 bg-dark-400  rounded-md py-4 px-8 overflow-hidden'>
               <div
-                className='flex flex-col items-center min-w-[250px] xs:w-[300px] gap-3 py-4 
+                className='flex flex-col items-center min-w-[250px] xs:w-[300px] space-y-3 py-4 
                 '
               >
                 <Link
@@ -126,7 +126,7 @@ const Header = () => {
             to='/category/sale'
             className='ml-4 border-b-2 border-transparent hover:border-b-2 hover:border-primary-100 hover:border-solid hover:ease-out'
           >
-            Sell
+            Sale
           </Link>
           <Link
             to='/offers'
@@ -139,10 +139,10 @@ const Header = () => {
         {/* Logged user menu */}
         {loggedIn || checkingStatus ? (
           <div className='relative z-50'>
-            <div className='flex gap-2'>
+            <div className='flex'>
               <Link
                 to='/create-listing'
-                className='flex items-center justify-center rounded-full bg-primary-400 h-[2.5rem] w-[2.5rem] mr-1 cursor-pointer'
+                className='flex items-center justify-center mr-3 rounded-full bg-primary-400 h-[2.5rem] w-[2.5rem] cursor-pointer'
               >
                 <HiPlus size={26} className='text-white' />
               </Link>

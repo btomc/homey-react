@@ -4,10 +4,14 @@ import { FaBath } from 'react-icons/fa'
 import { RiShieldStarFill } from 'react-icons/ri'
 import { FaTrash } from 'react-icons/fa'
 
-const ListingCard = ({ listing, id, onDelete }) => {
+const ListingCard = ({ listing, id, onDelete, marginSmall }) => {
   // console.log(listing)
   return (
-    <div className='flex flex-col justify-center items-start gap-y-1  p-4 rounded-lg w-[272px]  relative transition-all duration-300 ease-in z-0 hover:scale-[1.025] hover:cursor-pointer hover:bg-gradient-to-r from-white to-[rgba(136,160,255,0.21)] hover:shadow-[0_72px_49px_-51px_rgba(136,160,255,0.21)] border border-solid border-slate-200'>
+    <div
+      className={`flex flex-col justify-center items-start  p-4 rounded-lg w-[272px]  relative transition-all duration-300 ease-in z-0 hover:scale-[1.025] hover:cursor-pointer hover:bg-gradient-to-r from-white to-[rgba(136,160,255,0.21)] hover:shadow-[0_72px_49px_-51px_rgba(136,160,255,0.21)] border border-solid border-slate-200 ${
+        marginSmall ? 'mx-1' : 'my-4 sm:mx-3'
+      }`}
+    >
       {listing.offer && (
         <div className='absolute top-[25px] right-[25px] z-20 shadow-2xl bg-white/80 rounded-full w-10 h-10 flex justify-center items-center'>
           <RiShieldStarFill size={28} className='text-primary-100' />
@@ -23,12 +27,12 @@ const ListingCard = ({ listing, id, onDelete }) => {
           className='w-full h-full rounded-lg object-cover'
         />
       </Link>
-      <div className='w-full mt-2'>
+      <div className='w-full mt-3'>
         <p className='truncate text-primary-100 text-lg font-semibold'>
           {listing.name}
         </p>
       </div>
-      <div className='w-full mb-2'>
+      <div className='w-full mb-3 mt-1'>
         <p className='truncate text-sm'>
           {listing.city}, {listing.country}
         </p>
@@ -58,15 +62,15 @@ const ListingCard = ({ listing, id, onDelete }) => {
           </span>
         </p>
 
-        <div className='flex gap-4'>
-          <span className='flex items-center gap-1'>
-            <IoBed size={20} className='text-slate-400' />
+        <div className='flex'>
+          <span className='flex items-center mr-3'>
+            <IoBed size={20} className='text-slate-400 mr-1' />
             <p className=''>
               {listing.bedrooms > 1 ? `${listing.bedrooms}` : '1'}
             </p>
           </span>
-          <span className='flex items-center gap-1'>
-            <FaBath size={16} className='text-slate-400' />
+          <span className='flex items-center'>
+            <FaBath size={16} className='text-slate-400 mr-1' />
             <p className=''>
               {listing.bathrooms > 1 ? `${listing.bathrooms}` : '1'}
             </p>

@@ -130,10 +130,10 @@ const Listings = () => {
           </Button>
         </Link>
       </div>
-      <div className='mt-8 xs:mt-0 flex flex-wrap gap-4'>
+      <div className='mt-8 xs:mt-0 flex flex-wrap'>
         {!loading && listings?.length > 0 ? (
           <div className='flex flex-col'>
-            <div className='flex flex-wrap gap-4'>
+            <div className='flex flex-wrap'>
               {listings.map((listing) => (
                 <ListingCard
                   key={listing.id}

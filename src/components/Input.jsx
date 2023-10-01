@@ -13,6 +13,7 @@ const Input = ({
   marginVer,
   multiple,
   accept,
+  marginTop,
 }) => {
   return (
     <input
@@ -30,7 +31,7 @@ const Input = ({
       accept={accept}
       className={`p-3 rounded text-base outline-none border-2 border-solid border-slate-200 focus:border-solid w-full z-30 ${
         onFocusLight ? 'focus:border-slate-400' : 'focus:border-primary-100'
-      } ${marginVer ? 'mt-2 mb-4' : ''}`}
+      } ${marginVer ? 'mt-2 mb-4' : ''} ${marginTop ? 'mt-2' : ''}`}
     />
   )
 }

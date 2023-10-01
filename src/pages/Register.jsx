@@ -76,6 +76,7 @@ const Register = () => {
               placeholder='Enter your name'
               value={name}
               onChange={onChange}
+              marginTop
             />
           </div>
           <div className='my-4 w-full'>
@@ -87,6 +88,7 @@ const Register = () => {
               placeholder='Enter your email'
               value={email}
               onChange={onChange}
+              marginTop
             />
           </div>
           <div className='mt-4 mb-8'>
@@ -99,10 +101,11 @@ const Register = () => {
                 value={password}
                 placeholder='Enter your password'
                 onChange={onChange}
+                marginTop
               />
               <img
                 onClick={() => setShowPassword((prevState) => !prevState)}
-                className='absolute cursor-pointer top-[-4%] right-[1%] p-4 text-black z-50'
+                className='absolute cursor-pointer top-[10%] right-[1%] p-4 text-black z-50'
                 src={VisibilityIcon}
                 alt='show password'
               />

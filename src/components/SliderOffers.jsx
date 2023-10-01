@@ -78,9 +78,9 @@ const SliderOffers = () => {
             <SwiperSlide
               key={id}
               onClick={() => navigate(`/category/${data.type}/${id}`)}
-              className='mt-4 mx-4 xl:mx-1 w-[272px] max-w-[272px]'
+              className='mt-4 mx-1 md:mx-4 xl:mx-1 w-[272px] max-w-[272px]'
             >
-              <ListingCard listing={data} />
+              <ListingCard listing={data} marginSmall />
             </SwiperSlide>
           ))}
         </Swiper>

@@ -118,7 +118,7 @@ const Offers = () => {
         <Spinner />
       ) : listings && listings.length > 0 ? (
         <>
-          <div className='flex flex-wrap gap-4'>
+          <div className='flex flex-wrap'>
             {listings.map((listing) => (
               <ListingCard
                 listing={listing.data}
