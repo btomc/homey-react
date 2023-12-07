@@ -10,6 +10,8 @@ const Button = ({
   secondary,
   light,
   marRight,
+  outline,
+  primary,
 }) => {
   return (
     <button
@@ -23,10 +25,14 @@ const Button = ({
       } ${full ? 'w-full' : 'max-w-[200px]'} ${
         secondary
           ? 'text-gray-600 bg-transparent hover:bg-gray-300/70 border-2 border-solid border-gray-300 '
-          : 'text-white bg-primary-100 hover:bg-primary-700'
-      } ${light ? 'bg-primary-300 hover:bg-[#3353d6]' : ''} ${
+          : ''
+      } ${light ? 'bg-primary-300 hover:bg-primary-400' : ''} ${
         marRight ? 'mr-4' : 'mr-0'
-      } `}
+      } ${
+        outline
+          ? 'text-primary-300 bg-transparent hover:bg-primary-300/10 border-2 border-solid border-primary-300'
+          : ''
+      } ${primary ? 'text-white bg-primary-100 hover:bg-primary-700' : ''}`}
     >
       {children}
     </button>

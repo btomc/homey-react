@@ -83,7 +83,7 @@ const Login = () => {
             </div>
           </div>
 
-          <Button big full>
+          <Button primary big full>
             Login
           </Button>
 

@@ -1,12 +1,11 @@
 import { useRef, useState, useEffect } from 'react'
 import { getAuth } from 'firebase/auth'
 import { Link, useNavigate } from 'react-router-dom'
-import { BiSolidHomeSmile } from 'react-icons/bi'
+import { BiSolidHomeSmile, BiSolidMessageRounded } from 'react-icons/bi'
 import { HiUserCircle } from 'react-icons/hi2'
 import { HiPlus, HiMenuAlt2 } from 'react-icons/hi'
 import { MdOutlineAddHome } from 'react-icons/md'
 import { FiLogOut } from 'react-icons/fi'
-import userPhoto from '../assets/placeholder.jpg'
 import { useAuthStatus } from '../hooks/useAuthStatus'
 import DropdownMenu from './DropdownMenu'
 
@@ -74,6 +73,7 @@ const Header = () => {
                 <Link
                   to='/'
                   className='flex items-center py-2 hover:text-primary-300'
+                  onClick={toggleOpenMenu}
                 >
                   <span className='max-w-[100px] mr-2 transition duration-500'>
                     Home
@@ -82,6 +82,7 @@ const Header = () => {
                 <Link
                   to='/category/rent'
                   className='flex items-center py-2 hover:text-primary-300'
+                  onClick={toggleOpenMenu}
                 >
                   <span className='max-w-[100px] mr-2 transition duration-500'>
                     Rent
@@ -90,6 +91,7 @@ const Header = () => {
                 <Link
                   to='/category/sale'
                   className='flex items-center py-2 hover:text-primary-300'
+                  onClick={toggleOpenMenu}
                 >
                   <span className='max-w-[100px] mr-2 transition duration-500'>
                     Sale
@@ -98,6 +100,7 @@ const Header = () => {
                 <Link
                   to='/offers'
                   className='flex items-center py-2 hover:text-primary-300'
+                  onClick={toggleOpenMenu}
                 >
                   <span className='max-w-[100px] mr-2 transition duration-500'>
                     Offers
@@ -148,13 +151,20 @@ const Header = () => {
               </Link>
               <div
                 onClick={toggleOpen}
-                className='h-[2.5rem] w-[2.5rem] rounded-full'
+                className='h-[2.5rem] w-[2.5rem] cursor-pointer rounded-full flex justify-center items-center text-primary-300 bg-light-600'
               >
-                <img
+                {/* <img
                   src={userPhoto}
                   alt='user'
                   className='rounded-full cursor-pointer'
-                />
+                /> */}
+                <p className='text-xl'>
+                  {' '}
+                  {auth.currentUser?.displayName
+                    ?.split(' ')
+                    .map((n) => n[0])
+                    .join('')}
+                </p>
               </div>
             </div>
             {/* <p className='cursor-pointer'>{user.displayName}</p> */}
@@ -168,6 +178,7 @@ const Header = () => {
                   <Link
                     to='/my-listings'
                     className='flex items-center py-2 hover:text-primary-300'
+                    onClick={toggleOpen}
                   >
                     <MdOutlineAddHome
                       size={28}
@@ -178,8 +189,22 @@ const Header = () => {
                     </span>
                   </Link>
                   <Link
+                    to='/messages'
+                    className='flex items-center py-2 hover:text-primary-300'
+                    onClick={toggleOpen}
+                  >
+                    <BiSolidMessageRounded
+                      size={28}
+                      className='max-w-[20px] mr-2 transition duration-500 mb-[2px]'
+                    />
+                    <span className='max-w-[100px] mr-2 transition duration-500'>
+                      Messages
+                    </span>
+                  </Link>
+                  <Link
                     to='/profile'
                     className='flex items-center  py-2 hover:text-primary-300'
+                    onClick={toggleOpen}
                   >
                     <HiUserCircle
                       size={28}

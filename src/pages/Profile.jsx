@@ -55,6 +55,7 @@ const Profile = () => {
         <div className='flex justify-between items-center py-4'>
           <p className='text-lg font-medium'>Personal Details</p>
           <Button
+            primary
             onClick={() => {
               changeDetails && onSubmit()
               setChangeDetails((prevState) => !prevState)

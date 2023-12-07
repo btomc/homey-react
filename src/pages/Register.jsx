@@ -112,7 +112,7 @@ const Register = () => {
             </div>
           </div>
 
-          <Button big full>
+          <Button primary big full>
             Register
           </Button>
 

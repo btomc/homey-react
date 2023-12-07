@@ -210,7 +210,7 @@ const ListingDetails = () => {
                 to={`/contact/${listing.userRef}?listingName=${listing.name}&listingLocation=${listing.location}`}
                 className='mt-2'
               >
-                <Button full big marginVer>
+                <Button primary full big marginVer>
                   Contact Landlord
                 </Button>
               </Link>

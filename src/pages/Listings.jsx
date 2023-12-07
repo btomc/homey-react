@@ -124,7 +124,7 @@ const Listings = () => {
       <div className='flex flex-col xs:flex-row gap-y-4 items-center justify-between mb-4'>
         <Heading>My Listings</Heading>
         <Link to='/create-listing'>
-          <Button>
+          <Button primary>
             <MdOutlineAddHome size={22} className='mr-2 mb-[2px]' />
             Create Listing
           </Button>
@@ -149,7 +149,9 @@ const Listings = () => {
             {/* Load More Button */}
             {lastFetchedListing && listings?.length < count && (
               <div className='flex justify-center items-center w-full'>
-                <Button onClick={onFetchMoreListings}>Load More</Button>
+                <Button primary onClick={onFetchMoreListings}>
+                  Load More
+                </Button>
               </div>
             )}
           </div>

@@ -13,6 +13,8 @@ import Category from './pages/Category'
 import CreateListing from './pages/CreateListing'
 import Listings from './pages/Listings'
 import ListingDetails from './pages/ListingDetails'
+import Contact from './pages/Contact'
+import Messages from './pages/Messages'
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
             <Route path='' element={<PrivateRoute />}>
               <Route path='/profile' element={<Profile />} />
               <Route path='/my-listings' element={<Listings />} />
+              <Route path='/messages' element={<Messages />} />
             </Route>
             <Route path='/sign-in' element={<Login />} />
             <Route path='/sign-up' element={<Register />} />
@@ -36,6 +39,7 @@ function App() {
               path='/category/:categoryName/:listingId'
               element={<ListingDetails />}
             />
+            <Route path='/contact/:landlordId' element={<Contact />} />
           </Route>
         </Routes>
       </Router>

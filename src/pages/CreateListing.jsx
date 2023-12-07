@@ -201,7 +201,13 @@ const CreateListing = () => {
             <label className='text-lg'>Sell / Rent</label>
             <div className='flex gap-2 mt-2'>
               {type === 'sale' ? (
-                <Button onClick={onMutate} type='button' id='type' value='sale'>
+                <Button
+                  primary
+                  onClick={onMutate}
+                  type='button'
+                  id='type'
+                  value='sale'
+                >
                   Sell
                 </Button>
               ) : (
@@ -217,7 +223,13 @@ const CreateListing = () => {
               )}
 
               {type === 'rent' ? (
-                <Button onClick={onMutate} type='button' id='type' value='rent'>
+                <Button
+                  primary
+                  onClick={onMutate}
+                  type='button'
+                  id='type'
+                  value='rent'
+                >
                   Rent
                 </Button>
               ) : (
@@ -300,6 +312,7 @@ const CreateListing = () => {
                   type='button'
                   id='parking'
                   value='true'
+                  primary
                 >
                   Yes
                 </Button>
@@ -321,6 +334,7 @@ const CreateListing = () => {
                   type='button'
                   id='parking'
                   value='false'
+                  primary
                 >
                   No
                 </Button>
@@ -348,6 +362,7 @@ const CreateListing = () => {
                   type='button'
                   id='furnished'
                   value='true'
+                  primary
                 >
                   Yes
                 </Button>
@@ -369,6 +384,7 @@ const CreateListing = () => {
                   type='button'
                   id='furnished'
                   value='false'
+                  primary
                 >
                   No
                 </Button>
@@ -435,6 +451,7 @@ const CreateListing = () => {
                   type='button'
                   id='offer'
                   value='true'
+                  primary
                 >
                   Yes
                 </Button>
@@ -456,6 +473,7 @@ const CreateListing = () => {
                   type='button'
                   id='offer'
                   value='false'
+                  primary
                 >
                   No
                 </Button>
@@ -530,7 +548,7 @@ const CreateListing = () => {
             />
           </div>
 
-          <Button type='submit' full big>
+          <Button primary type='submit' full big>
             Create Listing
           </Button>
         </form>

@@ -13,6 +13,7 @@ module.exports = {
         'light-200': '#EBECED',
         'light-500': 'rgba(255, 255, 255, 0.2)',
         'light-600': '#eff1fc',
+        'primary-50': '#4c70ff',
         'primary-100': '#2949c6',
         'primary-300': '#4066ff',
         'primary-400': '#3353d6',
